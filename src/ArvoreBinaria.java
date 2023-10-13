@@ -11,19 +11,15 @@ public class ArvoreBinaria {
     }
 
     private Node inserirElemento(Node node, int info){
-
         if (node == null){
-            return new Node(info);
+            return new Node(info);//Se o nó raiz é nulo -> cria-se um nó com um valor info que será a raiz
         }
-
         if (info < node.info){
-            inserirElemento(node.esquerda, info);
+            node.esquerda = inserirElemento(node.esquerda, info);//Se o valor info a inserir é menor que o info raiz -> insere à esquerda da raiz atual
         } else if (info > node.info) {
-            inserirElemento(node.direita, info);
+            node.direita = inserirElemento(node.direita, info);//Se o valor info a inserir é maior que o info raiz -> insere à direita da raiz atual
         }
-
         return node;
-
     }
 
 
