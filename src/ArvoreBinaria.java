@@ -23,5 +23,28 @@ public class ArvoreBinaria {
     }
 
 
+    public void percorrePreOrdem(){
+        preOrdem(raiz);
+    }
+    private void preOrdem(Node node){
+        if (node == null){
+            return;
+        }
+        System.out.println(node.info + " ");
+        preOrdem(node.esquerda);
+        preOrdem(node.direita);
+    }
+
+    public void percorreInOrdem(){
+        InOrdem(raiz);
+    }
+    private void InOrdem(Node node){
+        if (node == null){
+            return;
+        }
+        InOrdem(node.esquerda);
+        System.out.println(node.info + " ");
+        InOrdem(node.direita);
+    }
 
 }
