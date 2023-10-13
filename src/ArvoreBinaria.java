@@ -2,26 +2,27 @@ public class ArvoreBinaria {
 
     private Node raiz;
 
-    public void inserirElemento(Node raiz, int info){
+    public ArvoreBinaria(){
+        raiz = null;
+    }
 
-        if (raiz != null){
-            if (info < raiz.info){
-                if (raiz.esquerda != null){
-                    inserirElemento(raiz.esquerda, info);
-                }else {
-                    System.out.println("Insere "+ info +" a esquerda de "+ raiz.info);
-                    raiz.esquerda = new Node();
-                }
-            } else if (info > raiz.info) {
-                if (raiz.direita != null){
-                    inserirElemento(raiz.direita, info);
-                }else {
-                    System.out.println("Insere "+ info +" a direita de "+ raiz.info);
-                    raiz.direita = new Node();
-                }
-                
-            }
+    public void inserir(int info) {
+        raiz = inserirElemento(raiz, info);
+    }
+
+    private Node inserirElemento(Node node, int info){
+
+        if (node == null){
+            return new Node(info);
         }
+
+        if (info < node.info){
+            inserirElemento(node.esquerda, info);
+        } else if (info > node.info) {
+            inserirElemento(node.direita, info);
+        }
+
+        return node;
 
     }
 
