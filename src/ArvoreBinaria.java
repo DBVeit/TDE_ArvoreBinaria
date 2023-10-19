@@ -86,7 +86,7 @@ public class ArvoreBinaria {
         if (node.esquerda == null){
             return node.direita;
         }
-        node.esquerda = removeMenor(node.direita);
+        node.esquerda = removeMenor(node.esquerda);
         return node;
     }
 
